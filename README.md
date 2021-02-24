@@ -63,11 +63,45 @@
 
 ### ✔️ Style
 
-- 파일명 소문자와 \_
-- PEP 8 스타일 가이드
+- vscode에서 formatting, pylint와 Black를 이용하기
+- [PEP 8 스타일 가이드](https://www.python.org/dev/peps/pep-0008/), [번역](https://wikidocs.net/7896)
+- 파일명, 함수, 변수, 애트리뷰트 lowercase_underscore [snake case]
+- 클래스 CapitalizedWord [camel case]
+- 모듈 수준 상수 ALL_CAPS
+
+---
+
+- instance method of class의 first argument명은 반드시 'self'
+- class method의 first argument명은 반드시 'cls'
+- 보호되야 하는 instance attribute -> \_leading_underscore
+- private instance attribute -> \_\_leading_underscore
+
+---
+
+- 1줄 79개 문자 이하, 다음 줄 4칸 스페이스
+- 각 함수와 클래스 사이에는 두 줄 띄기
+- 클래스 안 메스더와 메서드 사이는 한 줄 띄기
+- dic = {key: value, key: value}
+
+---
+
+- 빈컨테이너([]), 빈 시퀀스('') 검사 len X, 암묵적으로 False 취급 이용, <br>
+  if not Container/Sequece 이용, 비어있지 않은 경우 if Container/Sequece
+- 한 줄 짜리 if, for, while 루프, except 복합문 X 여러줄에 배치
+- 식 줄바꿈 할 경우 \대신 식을 괄호로 싸고 줄바꿈 들여쓰기
+
+---
+
+- from package import module에서 package명 되도록 생략X <br>
+  상재 경로 임포트 하는 경우 from . import module
+- import 명시 순서 -> 표준 라이브러리, 서드 파티, 직접 만든 모듈 순 그리고 알파벳 순
+
+<br>
 
 ### ✔️ D
 
 ### ✔️ D
 
 ### ✔️ D
+
+`
