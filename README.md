@@ -36,11 +36,38 @@
 
 <br>
 
-## 1. Pythonic
+## 1. Python
+
+### ✔️ Pythonic
 
 - 명시적이고 단순하고 가독성이 좋은 것
 
-### ✔️ Version of Python
+### ✔️ Dynamically-typted-interpreted-buffers-vectorization-compiled
 
 - Interpreter
-  cpython : 인터프리터이면서 컴파일러 파이썬의 구현체
+
+  : compile lang은 소스코드를 컴파일해서 실행 파일 run, <br>
+  interpreter lang은 한줄씩 기계어로 번역
+
+  - 인터프리터면서 컴파일러, 파이썬의 구현체
+    - **Cpython** : <br>(compile) python code(.py) -> bytecode(.pyc)<br>(interpreter[virtual machine]) run<br>확인 import dis dis.dis(function)<br>
+      GIL(global interpreter lock)을 사용하므로 하나의 스레드만 객체에 접근 가능
+    - **Pypy** : <br>파이썬 자체로 구현되있어 빠르다.<br>JIT(just in time) 컴파일 : 필요시 즉석으로 컴파일
+
+[why python is slow](http://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/)
+
+### ✔️ Version of Python
+
+- 2.7 -> python(deprecated), 3이상 -> python3
+- 현재 실행중인 버전 확인 sys.version_info || sys.version
+
+### ✔️ Style
+
+- 파일명 소문자와 \_
+- PEP 8 스타일 가이드
+
+### ✔️ D
+
+### ✔️ D
+
+### ✔️ D
