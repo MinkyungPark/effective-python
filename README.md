@@ -36,13 +36,11 @@
 
 <br>
 
-## 1. Python
-
-### ✔️ Pythonic
+### 1. Pythonic
 
 - 명시적이고 단순하고 가독성이 좋은 것
 
-### ✔️ Dynamically-typted-interpreted-buffers-vectorization-compiled
+### 2. Dynamically-typted-interpreted-buffers-vectorization-compiled
 
 - Interpreter
 
@@ -56,12 +54,12 @@
 
 [why python is slow](http://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/)
 
-### ✔️ Version of Python
+### 3. Version of Python
 
 - 2.7 -> python(deprecated), 3이상 -> python3
 - 현재 실행중인 버전 확인 sys.version_info || sys.version
 
-### ✔️ Style
+### 4. Style
 
 - vscode에서 formatting, pylint와 Black를 이용하기
 - [PEP 8 스타일 가이드](https://www.python.org/dev/peps/pep-0008/), [번역](https://wikidocs.net/7896)
@@ -98,9 +96,57 @@
 
 <br>
 
-### ✔️ D
+### 5. Types
+- 문자열 Sequence<br>
+: bytes에는 텍스트 인코딩 없고 str은 이진 인코딩이 없음<br>
+unicode -> binary data : `str.encode()` // default UTF-8<br>
+binary -> unicode : `bytes.decode()` // default UTF-8
+  1. bytes
+      - 부호가 없는 8바이트 데이터 
+        ```bash
+        a = b'h\x65llo'
+        print(list(a))
+        print(a)
+        >>> [104, 101, 108, 108, 111]
+            b'hello'
+        ```
+      - 종종 아스키 인코딩을 사용해 내부 문자 표시
+  2. str
+      - str 인스턴스에는 유니코드 code point가 들어있음
+  - bytes와 str 는 _호환이 되지 않음._ <br>+,<,>,==,% 등의 연산자 사용할 수 없음
+    ```bash
+    print(b'foo' == 'foo') # False
+    ```
+  3. 파일 핸들과 관련된 연산들은 default로 unicode를 요구한다.
+      ```bash
+      with open('data.bin', 'w') as f:
+        f.write(b'\xf1\xf2\xf3') # TypeError: write() argument must be str, not bytes
+      ```
+      텍스트모드 'w'가 아닌 이진 쓰기 모드 'wb'로 해결 할 수 있다. <br>
+      READ도 마찬가지로 'r'가 아닌 'rb'를 이용하면 해결
+      - system default encoding check
+        ```bash
+        $ python3 -c 'import locale; print(locale.getpreferredendcoding())')
+        # default encoding이 의심스러운경우
+        # 명시적으로 open에 encoding 파라미터 전달
+        with open('data.bin', 'r', encoding='cp1252') as f: ~~..
+        ``` 
 
-### ✔️ D
+
+### 6. Print
+- Formatting 4가지 
+  1. % 형식화 연산자
+    - 형식 지정자 : %s, %d .. ex print('2진수: %d, 16진수 %d' % (x, y))
+      - 문제점 : <br>
+      오른쪽 튜플(()) 값의 타입이나 순서 바꿀 시 직접 검사<br>
+      튜플을 딕셔너리로 바꾸면 직접 검사나 중복 기입 부분은 해결되지만 형식화 부분이 길어진다. <br>
+  2. format(), str.format()
+      ```bash
+      $ help('FORMATTING')
+      ```
+      여전히 키 반복, 중복 등의 문제가 있음. 웬만하면 위 두개 사용X
+  3. f-string: Interpolation
+    - 형식문자열 f, 바이트 문자 b, raw 문자 r 붙이는 것과 비슷하다.
 
 ### ✔️ D
 
