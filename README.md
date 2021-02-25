@@ -34,11 +34,27 @@
 
 ---
 
-<br>
+<br><br><br>
+
+# 파이썬 답게 생각하기 
 
 ### 1. Pythonic
 
 - 명시적이고 단순하고 가독성이 좋은 것
+- Easy to Read, Don't Repeat Yourself
+  - 한줄로 작성해서 시각적 잡음을 일으키지 말자
+  - or 이나 and를 식에 사용하는 것보다 if/else를 써라
+  - 되도록 if/else문을 여러줄로 작성해서 명확하게 만들어줘야 한다.
+  - 단지 2,3 번 반복되는 로직이라도 도우미 함수를 작성하자
+  - 빈 문자열, 리스트, 0 모두 암시적으로 False가 된 다는 것을 이용하고, <br>
+    딕셔너리 키가 없을 경우 KeyError 말고 get을 이용해라
+      ```bash
+      opacity = dic.get('투명도', [''])[0] or 0
+      ```
+  - 절대로 for, while 뒤에 else 사용하지 않기
+  - 대입식을 사용해 반복을 피하기 (walrus operator/assignment expression)
+  - switch문을 if/else의 향연으로 만들지 말고 walrus(대입식)를 이용하자
+  - do while도 walrus(대입식) 이용하자
 
 ### 2. Dynamically-typted-interpreted-buffers-vectorization-compiled
 
@@ -133,7 +149,7 @@ binary -> unicode : `bytes.decode()` // default UTF-8
         ``` 
 
 
-### 6. Print
+### 6. Formatting
 - Formatting 4가지 
   1. % 형식화 연산자
     - 형식 지정자 : %s, %d .. ex print('2진수: %d, 16진수 %d' % (x, y))
@@ -148,6 +164,44 @@ binary -> unicode : `bytes.decode()` // default UTF-8
   3. f-string: Interpolation
     - 형식문자열 f, 바이트 문자 b, raw 문자 r 붙이는 것과 비슷하다.
 
-### ✔️ D
+### 7. Unpacking
+- 인덱스를 사용하기보다 언패킹을 사용해서 시각적 잡음을 줄이자.
+  ```bash
+  item = ('호박엿','식혜')
+  first, second = item
+  print(first, '&', second) # 호박엿 & 식혜
+  ```
+- 임시 변수를 사용하지 않고도 값을 바꿀 수 있다.
+  ```bash
+  a[i-1],a[i] = a[i], a[i-1]
+  ```
+- 모든 iterable에 unpacking이 적용 가능 -> enumerate
+  - enumerate는 lazy generator
+  - enumerate & zip
+- 여러 계층의 경우도 가능 ex) (key, (name, val))
 
-`
+---
+<br><br><br>
+
+# List and Dictionary
+
+
+<br><br><br>
+
+# title
+
+### Generateor
+- generator : iterator를 생성해주는 함수, 함수 안에 yield 키워드를 사용
+  - enumerate
+  - zip
+    - 가장 짧은 길이의 이터레이터가 끝날 때 까지 튜플을 내놓는다.
+    - 가장 긴 길이의 이터레이터를 내놓으려면 zip_longest
+
+### Comprehension
+
+
+- if/else
+- try/except
+- try/except/else
+- try/exceipt/else/finally
+- try/finally
