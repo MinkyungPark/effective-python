@@ -185,6 +185,15 @@ binary -> unicode : `bytes.decode()` // default UTF-8
 
 # List and Dictionary
 
+- python dictionary
+  - hash table, associative array
+  - 분할 상환(Armotization) 방식으로 상수 시간의 복잡도를 가짐
+  - 동적 정보를 저장하기 이상적
+  - 물론 데이터를 추가만하고 조회를 잘 안쓴다면 Armotization의 연산 빈도에 대해 가정한 내용이 깨져서 효율적이지 않을 수 있다.
+
+### 8. Sequence Slicing
+- 어떤 클래스에서도 사용이 가능하다.
+- __getitem___ __setitem___
 
 <br><br><br>
 
