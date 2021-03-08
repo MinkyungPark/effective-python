@@ -194,6 +194,7 @@ binary -> unicode : `bytes.decode()` // default UTF-8
 ### 8. Sequence Slicing
 - 어떤 클래스에서도 사용이 가능하다.
 - __getitem___ __setitem___
+- slicing한 결과 리스트는 완죠니 새로운 리스트이며 원래의 리스트를 참조한다.
 
 <br><br><br>
 
