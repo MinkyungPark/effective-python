@@ -5,7 +5,7 @@
 > 정렬된 리스트 검색시 bisect 사용하기
 
 오류를 줄일 수 있는 방법
-> 별표 식을 사용해 언패킹 하기
+> 별표(*Asterisk) 식을 사용해 언패킹 하기
 
 파이썬다운 코드를 작성하는 방법
 > zip으로 여러 리스트 동시에 이러테이션 하기
@@ -173,7 +173,7 @@ binary -> unicode : `bytes.decode()` // default UTF-8
   ```
 - 임시 변수를 사용하지 않고도 값을 바꿀 수 있다.
   ```bash
-  a[i-1],a[i] = a[i], a[i-1]
+  a[i-1], a[i] = a[i], a[i-1]
   ```
 - 모든 iterable에 unpacking이 적용 가능 -> enumerate
   - enumerate는 lazy generator
@@ -193,8 +193,10 @@ binary -> unicode : `bytes.decode()` // default UTF-8
 
 ### 8. Sequence Slicing
 - 어떤 클래스에서도 사용이 가능하다.
-- __getitem___ __setitem___
+- \_\_getitem\_\_  \_\_setitem\_\_
 - slicing한 결과 리스트는 완죠니 새로운 리스트이며 원래의 리스트를 참조한다.
+- stride
+  - list[시작:끝:증가] 일정한 간격을 두고 슬라이싱 할 수 있는 구문
 
 <br><br><br>
 
